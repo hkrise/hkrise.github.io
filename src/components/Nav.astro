@@ -1,0 +1,102 @@
+---
+---
+
+<header class="nav" data-nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="HKRISE home">
+      <img src="/hkrise.png" alt="" width="36" height="36" />
+      <span>HKRISE</span>
+    </a>
+    <nav aria-label="Page">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#acknowledgements">Acknowledgements</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    height: var(--nav-height);
+    background: rgba(232, 241, 244, 0.88);
+    border-bottom: 1px solid transparent;
+    backdrop-filter: blur(10px);
+    transition: background 0.25s var(--ease), border-color 0.25s var(--ease),
+      box-shadow 0.25s var(--ease);
+  }
+
+  .nav.is-scrolled {
+    border-bottom-color: var(--color-border);
+    box-shadow: 0 6px 20px rgba(11, 42, 58, 0.08);
+    background: rgba(232, 241, 244, 0.96);
+  }
+
+  .nav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--color-deep);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+  }
+
+  .brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.2rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--color-muted);
+    font-weight: 600;
+    padding: 0.45rem 0.65rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 560px) {
+    nav a {
+      padding: 0.35rem 0.45rem;
+      font-size: 0.88rem;
+    }
+  }
+
+  nav a:hover {
+    color: var(--color-deep);
+    background: rgba(31, 122, 116, 0.08);
+  }
+</style>
+
+<script>
+  const nav = document.querySelector('[data-nav]');
+  if (nav) {
+    const onScroll = () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+</script>

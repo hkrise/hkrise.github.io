@@ -1,0 +1,33 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <p>
+      © {year} HKRISE ·
+      <a href="https://github.com/hkrise" target="_blank" rel="noopener noreferrer">github.com/hkrise</a>
+      · Partner logos and funding credits are listed under
+      <a href="#acknowledgements">Acknowledgements</a>.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-6) 0 var(--space-7);
+    border-top: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  a {
+    color: var(--color-sea);
+    font-weight: 600;
+  }
+</style>

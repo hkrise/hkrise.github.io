@@ -1,0 +1,373 @@
+---
+import {
+  funding,
+  ecfPartners,
+  institutionPartners,
+  mcefPartners,
+  peopleCredits,
+} from '../data/acknowledgements';
+
+function partnerClass(partner: { tone?: 'light' | 'dark' }) {
+  return partner.tone === 'dark' ? 'logo-tile dark' : 'logo-tile';
+}
+---
+
+<section class="ack" id="acknowledgements" aria-labelledby="ack-heading">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <h2 id="ack-heading">Acknowledgements</h2>
+      <p>
+        HKRISE projects are made possible by public funders, research groups, field teams, and web
+        developers across institutions. Full project-specific credits remain on each topic site.
+      </p>
+    </header>
+
+    <div class="funding" data-reveal>
+      <h3>Funding</h3>
+      <ul>
+        {
+          funding.map((item) => (
+            <li>
+              <p class="project">{item.project}</p>
+              <p class="grant">
+                <strong>{item.grant}</strong> — {item.funder}
+              </p>
+              {item.note ? <p class="note">{item.note}</p> : null}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="people" data-reveal>
+      <h3>People and institutions</h3>
+      <div class="credit-list">
+        {
+          peopleCredits.map((item) => (
+            <article>
+              <h4>{item.title}</h4>
+              {item.bodyHtml ? <p set:html={item.bodyHtml} /> : <p>{item.body}</p>}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="logo-groups" data-reveal>
+      <div class="logo-group">
+        <h3>Institutions</h3>
+        <ul class="logo-grid institutions" aria-label="Institution partners">
+          {
+            institutionPartners.map((partner) => (
+              <li>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={partnerClass(partner)}
+                >
+                  <img src={partner.src} alt={partner.alt} loading="lazy" />
+                  <span class="logo-name">{partner.alt}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="logo-group">
+        <h3>Funders</h3>
+
+        <div class="funder-block">
+          <p class="funder-label">Environment and Conservation Fund (HKSAR)</p>
+          <ul class="logo-grid funders-ecf" aria-label="Environment and Conservation Fund">
+            {
+              ecfPartners.map((partner) => (
+                <li>
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={partnerClass(partner)}
+                  >
+                    <img src={partner.src} alt={partner.alt} loading="lazy" />
+                    <span class="logo-name">{partner.alt}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="funder-block">
+          <p class="funder-label">
+            Marine Conservation Enhancement Fund — Environmental Enhancement Funds (Capco, HK
+            Electric, HKLTL)
+          </p>
+          <ul class="logo-grid funders-mcef" aria-label="Marine Conservation Enhancement Fund grantors">
+            {
+              mcefPartners.map((partner) => (
+                <li>
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={partnerClass(partner)}
+                  >
+                    <img src={partner.src} alt={partner.alt} loading="lazy" />
+                    <span class="logo-name">{partner.alt}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ack {
+    padding: 0 0 var(--space-8);
+  }
+
+  .section-head {
+    max-width: 46rem;
+    margin-bottom: var(--space-5);
+  }
+
+  h2 {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--color-deep);
+  }
+
+  .section-head p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.08rem;
+  }
+
+  h3 {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--color-sea);
+  }
+
+  .funding {
+    margin-bottom: var(--space-5);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(160deg, rgba(31, 122, 116, 0.08), rgba(26, 77, 99, 0.05)),
+      rgba(255, 255, 255, 0.55);
+    border: 1px solid var(--color-border);
+  }
+
+  .funding ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 840px) {
+    .funding ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .funding li {
+    padding-top: var(--space-2);
+    border-top: 3px solid var(--color-teal);
+  }
+
+  .project {
+    margin: 0 0 0.35rem;
+    font-weight: 700;
+    color: var(--color-deep);
+  }
+
+  .grant {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: 0.98rem;
+  }
+
+  .note {
+    margin: 0.45rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
+  .people {
+    margin-bottom: var(--space-5);
+  }
+
+  .credit-list {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .credit-list article {
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .credit-list article:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  h4 {
+    margin: 0 0 var(--space-2);
+    font-size: 1.05rem;
+    color: var(--color-deep);
+  }
+
+  .credit-list p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.98rem;
+  }
+
+  .credit-list :global(a) {
+    color: var(--color-sea);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .credit-list :global(a:hover) {
+    color: var(--color-teal);
+  }
+
+  .logo-groups {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .logo-group h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .funder-block + .funder-block {
+    margin-top: var(--space-4);
+  }
+
+  .funder-label {
+    margin: 0 0 var(--space-2);
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .logo-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .logo-grid.institutions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .logo-grid.funders-ecf {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 13rem;
+  }
+
+  .logo-grid.funders-mcef {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .logo-grid.institutions {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .logo-grid.funders-mcef {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 36rem;
+    }
+  }
+
+  .logo-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    height: 100%;
+    padding: 0.65rem 0.75rem;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition:
+      border-color 160ms var(--ease),
+      transform 160ms var(--ease),
+      box-shadow 160ms var(--ease);
+  }
+
+  .logo-tile:hover {
+    border-color: color-mix(in srgb, var(--color-teal) 55%, var(--color-border));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(26, 77, 99, 0.07);
+  }
+
+  .logo-tile.dark {
+    background: #111;
+    border-color: #222;
+  }
+
+  .logo-tile.dark:hover {
+    border-color: #3a3a3a;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  }
+
+  .logo-tile img {
+    width: auto;
+    max-width: 100%;
+    max-height: 2.5rem;
+    object-fit: contain;
+  }
+
+  .logo-tile.dark img {
+    max-height: 2.25rem;
+  }
+
+  .logo-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.72rem;
+    line-height: 1.25;
+    color: var(--color-muted);
+  }
+
+  .logo-tile.dark .logo-name {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  @media (min-width: 840px) {
+    .logo-tile {
+      padding: 0.7rem 0.8rem;
+    }
+
+    .logo-tile img {
+      max-height: 2.75rem;
+    }
+
+    .logo-tile.dark img {
+      max-height: 2.4rem;
+    }
+  }
+</style>

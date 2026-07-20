@@ -1,0 +1,98 @@
+---
+import { aboutCloserHtml, aboutIntro, aboutParagraphs } from '../data/about';
+---
+
+<section class="about" id="about" aria-labelledby="about-heading">
+  <div class="container" data-reveal>
+    <header class="section-head">
+      <h2 id="about-heading">About HKRISE</h2>
+      <p class="lede">{aboutIntro}</p>
+    </header>
+    <div class="topics">
+      {
+        aboutParagraphs.map((item) => (
+          <article>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+    <p class="closer" set:html={aboutCloserHtml} />
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 0 0 var(--space-7);
+  }
+
+  .section-head {
+    max-width: 48rem;
+    margin-bottom: var(--space-6);
+  }
+
+  h2 {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--color-deep);
+  }
+
+  .lede {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+  }
+
+  .topics {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 840px) {
+    .topics {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+  }
+
+  article {
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(160deg, rgba(31, 122, 116, 0.08), rgba(26, 77, 99, 0.05)),
+      rgba(255, 255, 255, 0.55);
+    border: 1px solid var(--color-border);
+  }
+
+  h3 {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-deep);
+  }
+
+  article p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.98rem;
+  }
+
+  .closer {
+    margin: var(--space-5) 0 0;
+    max-width: 48rem;
+    color: var(--color-muted);
+    font-size: 0.98rem;
+  }
+
+  .closer :global(a) {
+    color: var(--color-sea);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .closer :global(a:hover) {
+    color: var(--color-teal);
+  }
+</style>
