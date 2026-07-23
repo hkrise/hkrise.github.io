@@ -28,7 +28,7 @@ export const projects: Project[] = [
     id: 'rocky-shore',
     title: 'HKRISE',
     pitch:
-      'Territory-wide rocky shore biodiversity and physical environment across six coastal regions and 24 survey sites.',
+      'Territory-wide rocky shore biodiversity and physical environments across six hydrological regions and 24 survey sites.',
     tags: ['Map', 'GIS', 'Gallery'],
     href: 'https://Vicellken.github.io/HKRISE-reshape/',
     image: '/projects/rocky-shore.jpg',

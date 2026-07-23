@@ -23,13 +23,12 @@ const reverse = index % 2 === 1;
     <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
   </div>
   <div class="copy">
-    <p class="eyebrow">Open site</p>
     <h3>{project.title}</h3>
     <p class="pitch">{project.pitch}</p>
     <ul class="tags" aria-label="Topics">
       {project.tags.map((tag) => <li>{tag}</li>)}
     </ul>
-    <span class="cta-label">Open site <span aria-hidden="true">→</span></span>
+    <span class="cta-label">Go to site <span aria-hidden="true">→</span></span>
   </div>
 </a>
 
@@ -96,15 +95,6 @@ const reverse = index % 2 === 1;
     flex-direction: column;
     justify-content: center;
     order: 2;
-  }
-
-  .eyebrow {
-    margin: 0 0 var(--space-2);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--row-accent);
   }
 
   h3 {

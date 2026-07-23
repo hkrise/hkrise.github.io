@@ -8,10 +8,13 @@
   </div>
   <div class="container hero-copy">
     <p class="brand-mark">HKRISE</p>
-    <h1>Hong Kong rocky intertidal ecology, open to explore</h1>
+    <h1>
+      <span class="h1-lead">Hong Kong rocky intertidal ecology,</span><br />
+      open to explore
+    </h1>
     <p class="support">
-      A family of interactive sites for biodiversity, habitat suitability, and boulder-field
-      monitoring along Hong Kong shores.
+      A family of interactive sites for the biodiversity and physical environments of Hong Kong’s
+      hard rock coastal environments.
     </p>
     <div class="cta">
       <a class="btn btn-primary" href="#projects">Explore projects</a>
@@ -19,7 +22,13 @@
         class="btn btn-secondary"
         href="https://www.tidehku.com/"
         target="_blank"
-        rel="noopener noreferrer">About TIDE</a
+        rel="noopener noreferrer">About TIDE, HKU</a
+      >
+      <a
+        class="btn btn-secondary"
+        href="https://hkcoastalecology.wordpress.com/"
+        target="_blank"
+        rel="noopener noreferrer">About TideChaser, LU</a
       >
     </div>
   </div>
@@ -92,7 +101,17 @@
     font-size: clamp(1.55rem, 3.4vw, 2.35rem);
     font-weight: 500;
     line-height: 1.25;
-    max-width: 18ch;
+    max-width: none;
+  }
+
+  .h1-lead {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 420px) {
+    .h1-lead {
+      white-space: normal;
+    }
   }
 
   .support {

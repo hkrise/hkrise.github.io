@@ -2,7 +2,6 @@ export type FundingCredit = {
   project: string;
   funder: string;
   grant: string;
-  note?: string;
 };
 
 export type PeopleCredit = {
@@ -26,41 +25,38 @@ export const funding: FundingCredit[] = [
     project: 'HKRISE',
     funder: 'Environment and Conservation Fund, HKSAR',
     grant: 'ECF 105/2019',
-    note: 'Territory-wide rocky shore biodiversity survey and GIS.',
   },
   {
     project: 'HKRISE Lantau',
     funder: 'Marine Conservation Enhancement Fund of the Hong Kong Offshore LNG Terminal Project (Environmental Enhancement Funds)',
     grant: 'MCEF21006',
-    note: 'Thermal ecology, salinity profiles, and habitat suitability around Lantau. Established by Capco, HK Electric, and HKLTL.',
   },
   {
     project: 'HKRISE Boulders',
     funder: 'Environment and Conservation Fund, HKSAR',
     grant: 'ECF 112/2023',
-    note: 'Forgotten habitats: physical environments and biodiversity of intertidal boulder fields.',
   },
 ];
 
 /** People and institutional thanks distilled from project acknowledgements. */
 export const peopleCredits: PeopleCredit[] = [
   {
-    title: 'TideChasers and TIDE / SWIMS',
+    title: 'TideChasers at TIDE/SWIMS',
     body: 'Territory-wide surveys were led by the TideChasers — Steven Wong, Brian Leung, Jackson Lau, Valerie Hickey, and Tommy Hui — of the Tropical Intertidal Ecology (TIDE) Group at the Swire Institute of Marine Science (SWIMS), The University of Hong Kong, led by Prof. Gray A. Williams.',
   },
   {
-    title: 'HKRISE Boulders (Lingnan)',
+    title: 'TideChasers at Lingnan',
     body: 'HKRISE Boulders is led by Tommy Hui, Cherry Wong, and Adrian Wong from the Division of Science, Lingnan University, with survey and identification support from Dr. Jackson Lau and Mr. Brian Leung.',
   },
   {
     title: 'Website and data development',
-    body: 'The territory-wide GIS was developed by Yvonne Li and Dr. Yi-Fei Gu with help from Tun and Phoebe (TIDE / SWIMS). HKRISE Lantau GIS work was led by Dr. Yi-Fei Gu and Mengxuan Chen. The boulder-field site was developed by Dr. Yi-Fei Gu with data and layout support from Ms. Yuzheng Chen and Mr. Nick Yin. Lantau fieldwork logistics were supported by SWIMS staff including Alan, Cecily, Tomas, and Sylvia.',
+    body: 'The territory-wide GIS was developed by Yvonne Li and Dr. Yi-Fei Gu with help from Tun and Phoebe (TIDE / SWIMS). HKRISE Lantau GIS work was led by Dr. Yi-Fei Gu and Mengxuan Chen. The boulder field site was developed by Dr. Yi-Fei Gu with data and layout support from Ms. Yuzheng Chen and Mr. Nick Yin. Lantau fieldwork logistics were supported by SWIMS staff including Alan, Cecily, Tomas, and Sylvia.',
   },
   {
     title: 'Citizen science and data partners',
-    body: 'Thanks to volunteers who joined BioBlitz citizen science surveys coordinated with the TIDE Group, helping extend biodiversity records beyond the core survey sites. Climate and tide data draw on Hong Kong Observatory services. The School of Biological Sciences, The University of Hong Kong, is a related institutional home for TIDE / SWIMS research.',
+    body: 'Thanks to volunteers who joined BioBlitz citizen science surveys coordinated by the TIDE Group, helping extend biodiversity records beyond the core survey sites. Climate and tide data draw on Hong Kong Observatory services.',
     bodyHtml:
-      'Thanks to volunteers who joined <a href="https://www.tidehku.com/ecf-bioblitz" target="_blank" rel="noopener noreferrer">BioBlitz citizen science surveys</a> coordinated with the TIDE Group, helping extend biodiversity records beyond the core survey sites. Climate and tide data draw on <a href="https://www.hko.gov.hk/en/index.html" target="_blank" rel="noopener noreferrer">Hong Kong Observatory</a> services. The <a href="https://www.biosch.hku.hk/" target="_blank" rel="noopener noreferrer">School of Biological Sciences, The University of Hong Kong</a>, is a related institutional home for TIDE / SWIMS research.',
+      'Thanks to volunteers who joined <a href="https://www.tidehku.com/ecf-bioblitz" target="_blank" rel="noopener noreferrer">BioBlitz citizen science surveys</a> coordinated by the TIDE Group, helping extend biodiversity records beyond the core survey sites. Climate and tide data draw on <a href="https://www.hko.gov.hk/en/index.html" target="_blank" rel="noopener noreferrer">Hong Kong Observatory</a> services.',
   },
 ];
 

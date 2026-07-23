@@ -18,12 +18,13 @@ function partnerClass(partner: { tone?: 'light' | 'dark' }) {
       <h2 id="ack-heading">Acknowledgements</h2>
       <p>
         HKRISE projects are made possible by public funders, research groups, field teams, and web
-        developers across institutions. Full project-specific credits remain on each topic site.
+        developers across institutions. Full project-specific credits could be found inside
+        individual project sites.
       </p>
     </header>
 
     <div class="funding" data-reveal>
-      <h3>Funding</h3>
+      <h3>Fundings</h3>
       <ul>
         {
           funding.map((item) => (
@@ -32,7 +33,6 @@ function partnerClass(partner: { tone?: 'light' | 'dark' }) {
               <p class="grant">
                 <strong>{item.grant}</strong> — {item.funder}
               </p>
-              {item.note ? <p class="note">{item.note}</p> : null}
             </li>
           ))
         }
@@ -196,12 +196,6 @@ function partnerClass(partner: { tone?: 'light' | 'dark' }) {
     margin: 0;
     color: var(--color-ink);
     font-size: 0.98rem;
-  }
-
-  .note {
-    margin: 0.45rem 0 0;
-    color: var(--color-muted);
-    font-size: 0.92rem;
   }
 
   .people {
