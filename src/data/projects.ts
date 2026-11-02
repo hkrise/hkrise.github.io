@@ -54,4 +54,14 @@ export const projects: Project[] = [
     image: '/projects/boulders.jpg',
     imageAlt: 'Intertidal boulder field along a Hong Kong shore',
   },
+  {
+    id: 'vrssu',
+    title: 'VRSSU',
+    pitch:
+      'Virtual Rocky Shore Sampling Unit — prepare for shore surveys, follow a repeatable quadrat protocol, and see how sampling effort changes abundance estimates.',
+    tags: ['Field guide', 'Students', 'Charts'],
+    href: 'https://hkrise.github.io/vrssu/',
+    image: '/projects/vrssu.jpg',
+    imageAlt: 'Students conducting quadrat sampling on a rocky shore',
+  },
 ];
